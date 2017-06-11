@@ -15,4 +15,15 @@ public class MyDal {
         return accountDao.getAccount(username);
     }
 
+    public boolean createAccount(String username, String sex, String work, String number, String address, String password) {
+        Account account = new Account();
+        account.setUsername(username);
+        account.setSex(sex);
+        account.setWork(work);
+        account.setNumber(number);
+        account.setAddress(address);
+        account.setPassword(password);
+        return accountDao.createAccount(account);
+    }
+
 }

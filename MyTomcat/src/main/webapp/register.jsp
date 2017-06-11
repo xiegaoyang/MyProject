@@ -22,8 +22,8 @@
         <tr>
             <td>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
             <td>
-                <label><input name="sex" type="radio" value="" />男 </label>
-                <label><input name="sex" type="radio" value="" />女 </label>
+                <label><input name="sex" type="radio" value="男" />男 </label>
+                <label><input name="sex" type="radio" value="女" />女 </label>
             </td>
         </tr>
         <tr>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td>确认密码:</td>
-            <td><input type="text" name="password"></td>
+            <td><input type="text" name="password2"></td>
         </tr>
         <tr>
             <td colspan="2">

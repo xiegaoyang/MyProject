@@ -10,13 +10,10 @@ import com.xgy.mytomcat.service.AccountService;
 public class AccountServiceImpl implements AccountService {
 
 
-
-
     @Override
-    public boolean registerAccount(String username, String password) {
-
-
-        return true;
+    public boolean registerAccount(String username, String sex, String work, String number, String address, String password) {
+        MyDal myDal = new MyDal();
+        return myDal.createAccount(username, sex, work, number, address, password);
     }
 
     public boolean validateAccount(String username, String password) {
