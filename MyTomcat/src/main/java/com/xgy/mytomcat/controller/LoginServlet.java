@@ -1,4 +1,4 @@
-package com.xgy.mytomcat;
+package com.xgy.mytomcat.controller;
 
 import com.xgy.mytomcat.service.AccountService;
 import com.xgy.mytomcat.service.impl.AccountServiceImpl;
