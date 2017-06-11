@@ -1,0 +1,1 @@
+create TABLE account(NAME VARCHAR (30), password VARCHAR (6));
