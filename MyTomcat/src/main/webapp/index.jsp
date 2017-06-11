@@ -3,13 +3,16 @@
 <head>
 </head>
 <body>
-<h2 align="center" style="margin-top: 20px">欢迎来到馨香园</h2>
 
-<form align="center" style="margin-top: 100px" method="post" action="login">
-    用户名:&nbsp;<input type="text" name="username"/><br>
-    密&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="password"/><br><br>
-    <input type="submit" value="登陆">
+<%--不能通过前台直接访问web-inf--%>
+<form align="center" style="margin-top: 100px">
+    <a href="register.jsp">注册</a><br>
+    <a href="login.jsp">登陆</a>
 </form>
+<%--<form>--%>
+<%--<jsp:forward page="register.jsp" >注册</jsp:forward>--%>
+<%--<jsp:forward page="login.jsp" >登陆</jsp:forward>--%>
+<%--</form>--%>
 
 </body>
 </html>
