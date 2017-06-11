@@ -1,0 +1,4 @@
+
+function queryAccountInfo(number) {
+
+}

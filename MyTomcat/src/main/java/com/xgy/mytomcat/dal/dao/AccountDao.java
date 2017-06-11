@@ -8,6 +8,7 @@ import com.xgy.mytomcat.dal.model.Account;
 public interface AccountDao {
 
     boolean createAccount(Account account);
-    Account getAccount(String username);
+    Account getAccount(String number);
+    boolean updateAccount(Account account);
 
 }

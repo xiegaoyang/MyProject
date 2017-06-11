@@ -42,7 +42,13 @@ public class LoginServlet extends HttpServlet {
             resp.setHeader("content-type", "text/html;charset=UTF-8");
             PrintWriter out = resp.getWriter();
             if (accountService.validateAccount(username, password)) {
-                out.print("登陆成功, username = " + username + ", password = " + password);
+//                out.print("登陆成功, username = " + username + ", password = " + password);
+
+//                req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, resp);
+                //req.getRequestDispatcher("/jsp/home.jsp").forward(req, resp);
+                //不能让浏览器还显示login
+                resp.sendRedirect("/jsp/home.jsp");
+
             } else {
                 out.print("登陆失败, username = " + username + ", password = " + password);
             }

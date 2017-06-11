@@ -8,6 +8,7 @@ import com.xgy.mytomcat.util.JDBCUtils;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -48,9 +49,9 @@ public class AccountDaoImpl implements AccountDao {
     }
 
 
-    public Account getAccount(String username) {
+    public Account getAccount(String number) {
 
-        String sql = "select * from account where name='" + username + "'";
+        String sql = "select * from account where number='" + number + "'";
 
         Connection conn=null;
         Statement stat=null;
@@ -63,6 +64,10 @@ public class AccountDaoImpl implements AccountDao {
             if(rs.next()){
                 Account account = new Account();
                 account.setUsername(rs.getString("name"));
+                account.setSex(rs.getString("sex"));
+                account.setWork(rs.getString("work"));
+                account.setAddress(rs.getString("address"));
+                account.setNumber(rs.getString("number"));
                 account.setPassword(rs.getString("password"));
                 return account;
             }else{
@@ -74,6 +79,39 @@ public class AccountDaoImpl implements AccountDao {
         }finally{
             JDBCUtils.closeConn(rs, stat, conn);
         }
+    }
+
+    @Override
+    public boolean updateAccount(Account account) {
+
+        String sql = "UPDATE account SET " +
+                "name='" + account.getUsername() + "', " +
+                "sex='" + account.getSex() + "', " +
+                "work='" + account.getWork() + "', " +
+                "address='" + account.getAddress() + "' where number='" + account.getNumber() + "';";
+
+        System.out.println("sql = " + sql);
+
+        Connection conn=null;
+        Statement stat=null;
+        ResultSet rs=null;
+
+        try {
+            conn = JDBCUtils.getConn();
+            stat = conn.createStatement();
+            int results = stat.executeUpdate(sql);
+            if (-1 == results) {
+                return false;
+            }
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }finally{
+            JDBCUtils.closeConn(rs, stat, conn);
+        }
+
     }
 
     public static void main(String[] args) {
